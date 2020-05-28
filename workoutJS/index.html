@@ -1,22 +1,25 @@
 <!DOCTYPE html>
 <html>    
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
 <body>
     <link rel="stylesheet" type="text/css" href="style.css">
     <div ng-app="app" ng-controller="controller">
         <h1>Workout Generator</h1>
-        <br>
         <div>How is your mood today?</div>
         <select ng-model="selectedMode">
             <option ng-repeat="m in moods">{{m}}</option>
         </select>
+        <br><br>
         <div>Add an extra set?</div>
         <select ng-model="selectedExtra">
             <option ng-repeat="x in extraOptions">{{x}}</option>
         </select>
-        <br><br>
+        <br><br><br>
         <button ng-click="generateWorkout()">Create new workout</button>
-        <br><br>
+        <br><br><br>
         <table>
             <tr ng-repeat="d in drills">
               <td>{{d.name}}</td>
