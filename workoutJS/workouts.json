@@ -1,0 +1,73 @@
+{
+    "workouts": {
+       "upper": [
+          {
+             "name": "pushups",
+             "limit": "10",
+             "unit": "reps"
+          }
+       ],
+       "core": [
+          {
+             "name": "v-ups",
+             "limit": "10",
+             "unit": "reps"
+          },
+          {
+             "name": "atomic-situps",
+             "limit": "10",
+             "unit": "reps"
+          },
+          {
+             "name": "situps",
+             "limit": "15",
+             "unit": "reps"
+          },
+          {
+             "name": "leg-raises",
+             "limit": "15",
+             "unit": "reps"
+          }
+       ],
+       "lower": [
+          {
+             "name": "front-lunges",
+             "limit": "20",
+             "unit": "reps"
+          },
+          {
+            "name": "air-squats",
+            "limit": "20",
+            "unit": "reps"
+         },
+          {
+             "name": "jump-squats",
+             "limit": "20",
+             "unit": "reps"
+          }
+       ],
+       "extra": [
+        {
+           "name": "pullups",
+           "limit": "2",
+           "unit": "reps"
+        },        
+        {
+           "name": "burpees",
+           "limit": "5",
+           "unit": "reps"
+        }
+     ]},
+    "modes": [
+       {
+          "name": "As many as you can",
+          "limit": "15",
+          "unit": "mins"
+       },
+       {
+          "name": "Number of sets in time",
+          "limit": "5",
+          "unit": "sets"
+       }
+    ]
+ }

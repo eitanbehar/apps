@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>    
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<body>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <div ng-app="app" ng-controller="controller">
+        <h1>Workout Generator</h1>
+        <br>
+        <div>How is your mood today?</div>
+        <select ng-model="selectedMode">
+            <option ng-repeat="m in moods">{{m}}</option>
+        </select>
+        <div>Add an extra set?</div>
+        <select ng-model="selectedExtra">
+            <option ng-repeat="x in extraOptions">{{x}}</option>
+        </select>
+        <br><br>
+        <button ng-click="generateWorkout()">Create new workout</button>
+        <br><br>
+        <table>
+            <tr ng-repeat="d in drills">
+              <td>{{d.name}}</td>
+              <td>{{d.limit}}</td>
+              <td>{{d.unit}}</td>
+            </tr>
+          </table>
+
+    </div>
+
+<script src="app.js"></script>
+<script src="controller.js"></script>
+
+</body>
+</html>
