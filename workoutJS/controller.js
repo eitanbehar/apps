@@ -2,36 +2,48 @@ app.controller("controller", function($scope, $http) {
     
     $scope.moods = [ "Normal", "Lazy", "Energetic"];
     $scope.selectedMode = "Normal";
-    $scope.extraOptions = [ "Yes, plis!", "No way Jose!!!"];
-    $scope.selectedExtra = "Yes, plis!";
+    $scope.workoutOptions = { extra: true, bodyweight: true, barbell: true, aerobic: true}
 
     $scope.generateWorkout = function(){        
         $http.get('workouts.json').then(function(response) {
             
-            //console.log(response.data.workouts.upper[0]);
-            
             let drills = [];
-
-            drills.push(SelectDrill(response.data.modes, $scope.selectedMode));
-
-            if($scope.selectedExtra.includes("Yes"))
-                drills.push(SelectDrill(response.data.workouts.extra, $scope.selectedMode));
-
-            drills.push(SelectDrill(response.data.workouts.upper, $scope.selectedMode));
-            drills.push(SelectDrill(response.data.workouts.core,$scope.selectedMode));
-            drills.push(SelectDrill(response.data.workouts.lower, $scope.selectedMode));
-            $scope.drills = drills;
             
+            drills.push(SelectDrill(response.data.modes, null));
+
+            if($scope.workoutOptions.extra == true)
+                drills.push(SelectDrill(response.data.workouts.extra, $scope.selectedMode, $scope.workoutOptions));
+
+            drills.push(SelectDrill(response.data.workouts.upper, $scope.selectedMode, $scope.workoutOptions));
+            drills.push(SelectDrill(response.data.workouts.core,$scope.selectedMode, $scope.workoutOptions));
+            drills.push(SelectDrill(response.data.workouts.lower, $scope.selectedMode, $scope.workoutOptions));
+            $scope.drills = drills;
          });
     }
   });
 
-  function SelectDrill(drillArray, mood)
+  function SelectDrill(drillArray, mood, options)
   {
-    let drill = drillArray[Math.floor(Math.random() * drillArray.length)];
+    let filtered = [];
+    if(options == null) 
+    {     
+        filtered = drillArray;
+    }    
+    else
+    {
+        if(options.barbell == true)        
+            filtered = filtered.concat(drillArray.filter(function(x) { return x.type == "barbell"; }));        
+        if(options.bodyweight == true)
+        filtered = filtered.concat(drillArray.filter(function(x) { return x.type == "bodyweight"; }));        
+        if(options.aerobic == true)
+        filtered = filtered.concat(drillArray.filter(function(x) { return x.type == "aerobic"; }));        
+    }
+
+    let drill = filtered[Math.floor(Math.random() * filtered.length)];
     if(mood == "Lazy")
-        drill.limit = Math.round(parseInt(drill.limit) * 0.8);
+        drill.limit = Math.round(parseInt(drill.limit) * 0.4);
     if(mood == "Energetic")
-        drill.limit = Math.round(parseInt(drill.limit) * 1.2);
+        drill.limit = Math.round(parseInt(drill.limit) * 1.6);
+
     return drill;
   }
