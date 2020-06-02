@@ -3,6 +3,31 @@
        "upper": [
           {
              "name": "pushups",
+             "type": "bodyweight",
+             "limit": "10",
+             "unit": "reps"
+          },
+          {
+             "name": "press",
+             "type": "barbell",
+             "limit": "10",
+             "unit": "reps"
+          },
+          {
+             "name": "push-press",
+             "type": "barbell",
+             "limit": "10",
+             "unit": "reps"
+          },
+          {
+            "name": "bent-over-row",
+            "type": "barbell",
+            "limit": "10",
+            "unit": "reps"
+         },
+          {
+             "name": "snatch",
+             "type": "barbell",
              "limit": "10",
              "unit": "reps"
           }
@@ -10,21 +35,37 @@
        "core": [
           {
              "name": "v-ups",
+             "type": "bodyweight",
              "limit": "10",
              "unit": "reps"
           },
           {
              "name": "atomic-situps",
+             "type": "bodyweight",
              "limit": "10",
              "unit": "reps"
           },
           {
              "name": "situps",
+             "type": "bodyweight",
              "limit": "15",
              "unit": "reps"
           },
           {
+             "name": "deadlift",
+             "type": "barbell",
+             "limit": "15",
+             "unit": "reps"
+          },
+          {
+             "name": "sumo-deadlift",
+             "type": "barbell",
+             "limit": "10",
+             "unit": "reps"
+          },
+          {
              "name": "leg-raises",
+             "type": "bodyweight",
              "limit": "15",
              "unit": "reps"
           }
@@ -32,40 +73,59 @@
        "lower": [
           {
              "name": "front-lunges",
+             "type": "bodyweight",
              "limit": "20",
              "unit": "reps"
           },
           {
             "name": "air-squats",
+            "type": "bodyweight",
             "limit": "20",
+            "unit": "reps"
+         },
+         {
+            "name": "jumping-lunges",
+            "type": "aerobic",
+            "limit": "10",
             "unit": "reps"
          },
           {
              "name": "jump-squats",
-             "limit": "20",
+             "type": "aerobic",
+             "limit": "15",
              "unit": "reps"
           }
        ],
        "extra": [
         {
            "name": "pullups",
+           "type": "bodyweight",
            "limit": "2",
            "unit": "reps"
         },        
         {
            "name": "burpees",
+           "type": "aerobic",
            "limit": "5",
            "unit": "reps"
-        }
+        },
+        {
+         "name": "rope jumps",
+         "type": "aerobic",
+         "limit": "50",
+         "unit": "reps"
+      }
      ]},
     "modes": [
        {
           "name": "As many as you can",
+          "type": "amrap",
           "limit": "15",
           "unit": "mins"
        },
        {
           "name": "Number of sets in time",
+          "type": "4t",
           "limit": "5",
           "unit": "sets"
        }

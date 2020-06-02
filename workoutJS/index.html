@@ -1,34 +1,50 @@
 <!DOCTYPE html>
-<html>    
-    <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
+<html>        
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
 <body>
     <link rel="stylesheet" type="text/css" href="style.css">
     <div ng-app="app" ng-controller="controller">
-        <h1>Workout Generator</h1>
-        <div>How is your mood today?</div>
+        <h1>>> BACONAO.NET</h1>
+        <h2>Workout Generator</h2>
+        <h4>based on 3-sets: upper body/ core / lower body</h4>
+        <label>How is your mood today?
         <select ng-model="selectedMode">
             <option ng-repeat="m in moods">{{m}}</option>
         </select>
+    </label>
         <br><br>
-        <div>Add an extra set?</div>
-        <select ng-model="selectedExtra">
-            <option ng-repeat="x in extraOptions">{{x}}</option>
-        </select>
+        <label>Add extra set?
+            <input type="checkbox" ng-model="workoutOptions.extra">
+        </label>
+        <label>Bodyweight?
+            <input type="checkbox" ng-model="workoutOptions.bodyweight">
+        </label>
+        <label>Barbell?
+            <input type="checkbox" ng-model="workoutOptions.barbell">
+        </label>
+        <label>Aerobic?
+            <input type="checkbox" ng-model="workoutOptions.aerobic">
+        </label>
         <br><br><br>
         <button ng-click="generateWorkout()">Create new workout</button>
         <br><br><br>
         <table>
-            <tr ng-repeat="d in drills">
-              <td>{{d.name}}</td>
+            <tr ng-repeat="d in drills track by $index">
+              <td>{{d.name}}</td>              
               <td>{{d.limit}}</td>
               <td>{{d.unit}}</td>
             </tr>
-          </table>
-
+        </table>   
     </div>
+
+
+    <footer class="footer">
+      <div>
+        <span>Issues and requests:        
+            <a href="https://github.com/eitanbehar/workout/issues" target="_blank">https://github.com/eitanbehar/workout/issues</a>
+        </span>
+      </div>
+    </footer>
 
 <script src="app.js"></script>
 <script src="controller.js"></script>

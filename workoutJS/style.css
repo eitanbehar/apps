@@ -7,12 +7,17 @@ table, th , td  {
   font-size: 120%;
 }
 
+
 table tr:nth-child(odd) {
   background-color: #f1f1f1;  
 }
 
 table tr:nth-child(even) {
   background-color: #ffffff;  
+}
+
+table tr:first-child {
+  background: #08B6CE ;
 }
 
 html {
@@ -22,10 +27,17 @@ html {
 
 button {
     font-family: "Lucida Sans", sans-serif;
-    font-size: 120%;
+    font-size: 110%;
 }
 
 select {
     font-family: "Lucida Sans", sans-serif;
-    font-size: 120%;
+    font-size: 110%;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  height: 60px;
+  width: 100%;
 }
