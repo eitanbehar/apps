@@ -1,0 +1,9 @@
+D:\GitHub\workout\GiveMeSomeWorkout\GiveMeSomeWorkout\bin\Debug\GiveMeSomeWorkout.exe.config
+D:\GitHub\workout\GiveMeSomeWorkout\GiveMeSomeWorkout\bin\Debug\GiveMeSomeWorkout.exe
+D:\GitHub\workout\GiveMeSomeWorkout\GiveMeSomeWorkout\bin\Debug\GiveMeSomeWorkout.pdb
+D:\GitHub\workout\GiveMeSomeWorkout\GiveMeSomeWorkout\bin\Debug\Newtonsoft.Json.dll
+D:\GitHub\workout\GiveMeSomeWorkout\GiveMeSomeWorkout\obj\Debug\GiveMeSomeWorkout.csprojAssemblyReference.cache
+D:\GitHub\workout\GiveMeSomeWorkout\GiveMeSomeWorkout\obj\Debug\GiveMeSomeWorkout.csproj.CoreCompileInputs.cache
+D:\GitHub\workout\GiveMeSomeWorkout\GiveMeSomeWorkout\obj\Debug\GiveMeSomeWorkout.csproj.CopyComplete
+D:\GitHub\workout\GiveMeSomeWorkout\GiveMeSomeWorkout\obj\Debug\GiveMeSomeWorkout.exe
+D:\GitHub\workout\GiveMeSomeWorkout\GiveMeSomeWorkout\obj\Debug\GiveMeSomeWorkout.pdb
