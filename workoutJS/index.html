@@ -26,6 +26,9 @@
         <label>Barbell?
             <input type="checkbox" ng-model="workoutOptions.barbell">
         </label>
+        <label>Kettlebell?
+            <input type="checkbox" ng-model="workoutOptions.kettlebell">
+        </label>
         <label>Aerobic?
             <input type="checkbox" ng-model="workoutOptions.aerobic">
         </label>
@@ -35,6 +38,7 @@
         <table>
             <tr ng-repeat="d in drills track by $index">
               <td>{{d.name}}</td>              
+              <td>{{d.type}}</td> 
               <td>{{d.limit}}</td>
               <td>{{d.unit}}</td>
             </tr>

@@ -8,6 +8,12 @@
              "unit": "reps"
           },
           {
+            "name": "press",
+            "type": "kettlebell",
+            "limit": "10",
+            "unit": "reps"
+         },
+          {
              "name": "press",
              "type": "barbell",
              "limit": "10",
@@ -64,6 +70,18 @@
              "unit": "reps"
           },
           {
+            "name": "russian-swing",
+            "type": "kettlebell",
+            "limit": "15",
+            "unit": "reps"
+         },
+         {
+            "name": "american-swing",
+            "type": "kettlebell",
+            "limit": "12",
+            "unit": "reps"
+         },
+          {
              "name": "leg-raises",
              "type": "bodyweight",
              "limit": "15",
@@ -86,6 +104,24 @@
          {
             "name": "jumping-lunges",
             "type": "aerobic",
+            "limit": "10",
+            "unit": "reps"
+         },
+         {
+            "name": "gobblet-squats",
+            "type": "kettlebell",
+            "limit": "12",
+            "unit": "reps"
+         },
+         {
+            "name": "thrusters",
+            "type": "kettlebell",
+            "limit": "10",
+            "unit": "reps"
+         },
+         {
+            "name": "thrusters",
+            "type": "barbell",
             "limit": "10",
             "unit": "reps"
          },
@@ -119,13 +155,13 @@
     "modes": [
        {
           "name": "As many as you can",
-          "type": "amrap",
+          "type": "Type",
           "limit": "15",
           "unit": "mins"
        },
        {
           "name": "Number of sets in time",
-          "type": "4t",
+          "type": "Type",
           "limit": "5",
           "unit": "sets"
        }
