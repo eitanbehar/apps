@@ -28,7 +28,7 @@ jobs:
       with: 
         host: baconao.net
         user: baconao_ftp
-        password: myself72
+        password: nH3L;5Duo+dF
         localDir: workoutJS
         remoteDir: public_html/workout
         
