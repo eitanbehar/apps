@@ -18,6 +18,7 @@ app.controller("controller", function($scope, $http) {
             drills.push(SelectDrill(response.data.workouts.core,$scope.selectedMode, $scope.workoutOptions));
             drills.push(SelectDrill(response.data.workouts.lower, $scope.selectedMode, $scope.workoutOptions));
             $scope.drills = drills;
+
          });
     }
   });

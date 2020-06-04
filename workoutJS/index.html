@@ -2,57 +2,95 @@
 <html>      
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="assets/css/main.css" />
         <link rel="stylesheet" type="text/css" href="style.css">
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
     </head>          
-<body>
+<body class="subpage">
     
-    <div ng-app="app" ng-controller="controller">
-        <h2>>> BACONAO.NET</h2>
-        <h3>Workout Generator</h3>
-        <h5>based on 3-sets: upper body / core / lower body</h5>
+    <header id="header">
+        <div class="inner">
+            <a href="index.html" class="logo">>> BACONAO.NET / Workout Generator</a>
+            <nav id="nav">
+                <a href="\">Home</a>
+                <a href="#">Workout Generator</a>
+                <a href="blog\">Blog</a>
+            </nav>
+            <a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
+        </div>
+    </header>
+
+    <div ng-app="app" ng-controller="controller" class="content">
+        <h4>Generates workouts based on 3-sets: upper body / core / lower body</h4>
         <label>How is your mood today?
             <select ng-model="selectedMode">
                 <option ng-repeat="m in moods">{{m}}</option>
             </select>
-        </label>
-        <br><br>
-        <label>Add extra set?
-            <input type="checkbox" ng-model="workoutOptions.extra">
-        </label>
-        <label>Bodyweight?
-            <input type="checkbox" ng-model="workoutOptions.bodyweight">
-        </label>
-        <label>Barbell?
-            <input type="checkbox" ng-model="workoutOptions.barbell">
-        </label>
-        <label>Kettlebell?
-            <input type="checkbox" ng-model="workoutOptions.kettlebell">
-        </label>
-        <label>Aerobic?
-            <input type="checkbox" ng-model="workoutOptions.aerobic">
-        </label>
-        <br><br>
-        <button ng-click="generateWorkout()">Create new workout</button>
-        <br><br><br>
-        <table>
-            <tr ng-repeat="d in drills track by $index">
-              <td>{{d.name}}</td>              
-              <td>{{d.type}}</td> 
-              <td>{{d.limit}}</td>
-              <td>{{d.unit}}</td>
-            </tr>
-        </table>   
+        </label>        
+        <div class="6u$ 12u$(small)">
+            <input id="extra" type="checkbox" ng-model="workoutOptions.extra">            
+            <label for="extra" >Create additional set</label>
+        </div>
+        <div class="6u$ 12u$(small)">
+            <input id="bodyweight" name="bodyweight" type="checkbox" ng-model="workoutOptions.bodyweight">
+            <label for="bodyweight">Bodyweight</label>
+        </div>        
+        <div class="6u$ 12u$(small)">            
+            <input id="barbell" type="checkbox" ng-model="workoutOptions.barbell">
+            <label for="barbell">Barbell</label>
+        </div>
+        <div class="6u$ 12u$(small)">        
+            <input id="kettlebell" type="checkbox" ng-model="workoutOptions.kettlebell">
+            <label for="kettlebell">Kettlebell</label>
+        </div>
+        <div class="6u$ 12u$(small)">
+            <input id="aerobic" type="checkbox" ng-model="workoutOptions.aerobic">
+            <label for="aerobic">Aerobic</label>        
+        </div>
+        <div id="workouts">
+            <button class="submit special" ng-click="generateWorkout()">Create new workout</button>
+        </div>        
+        <br>
+        <div class="table-wrapper">
+            <table  class="alt">
+                <tr ng-repeat="d in drills track by $index">
+                <td>{{d.name}}</td>              
+                <td>{{d.type}}</td> 
+                <td>{{d.limit}}</td>
+                <td>{{d.unit}}</td>
+                </tr>
+            </table>   
+        </div>  
     </div>
     <br><br><br>
-    
-    <span>Issues and requests:        
-        <a href="https://github.com/eitanbehar/workout/issues" target="_blank">eitanbehar @ GitHub</a>
-    </span>      
-    
+    </div>
+</section>
 
 <script src="app.js"></script>
 <script src="controller.js"></script>
+
+<!-- Footer -->
+<footer id="footer">
+    <div class="inner">
+        <div class="flex">
+            <div class="copyright">
+                Issues and requests:<a href="https://github.com/eitanbehar/workout/issues" target="_blank">eitanbehar @ GitHub</a>
+            </div>
+            <ul class="icons">
+                <li><a href="https://www.facebook.com/baconao" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+                <li><a href="https://www.linkedin.com/in/eitanbehar/" class="icon fa-linkedin"><span class="label">linkedIn</span></a></li>
+                <li><a href="https://github.com/eitanbehar/" class="icon fa-github"><span class="label">github</span></a></li>
+                <li><a href="https://www.youtube.com/user/eitanito" class="icon fa-youtube"><span class="label">youtube</span></a></li>							
+                <!--li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>							
+                <li><a href="#" class="icon fa-pinterest-p"><span class="label">Pinterest</span></a></li>
+                <li><a href="#" class="icon fa-vimeo"><span class="label">Vimeo</span></a></li-->
+            </ul>
+        </div>
+    </div>
+</footer>
+
+<!-- Scripts -->
+
 
 </body>
 </html>
