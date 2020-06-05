@@ -1642,7 +1642,7 @@
 		}
 
 	strong, b {
-		color: #555;
+		color: #000;
 		font-weight: 600;
 	}
 
@@ -2010,7 +2010,7 @@
 		outline: 0;
 		padding: 0 1em;
 		text-decoration: none;
-		width: 100%;
+		width: 250px;
 	}
 
 		input[type="text"]:invalid,
@@ -2093,7 +2093,7 @@
 		input[type="checkbox"] + label,
 		input[type="radio"] + label {
 			text-decoration: none;
-			color: #9a9a9a;
+			color: #000;
 			cursor: pointer;
 			display: inline-block;
 			font-size: 1em;
@@ -2260,8 +2260,9 @@
 			border-radius: 100%;
 		}
 
-		.image.semiround img {
+		.image.icon img {
 			border-radius: 5%;
+			width: 200px;
 		}
 
 		.image.left {
@@ -2478,7 +2479,7 @@
 
 	table {
 		margin: 0 0 2em 0;
-		width: 100%;
+		width: 50%;
 	}
 
 		table tbody tr {
@@ -2496,7 +2497,7 @@
 		}
 
 		table th {
-			color: #555;
+			color: #000;
 			font-size: 0.9em;
 			font-weight: 600;
 			padding: 0 0.75em 0.75em 0.75em;
@@ -2522,11 +2523,13 @@
 			}
 
 				table.alt tbody tr td:first-child {
-					border-left-width: 1px;
+					border-left-width: 1px;					
 				}
 
 			table.alt tbody tr:first-child td {
 				border-top-width: 1px;
+				background: #08B6CE ;
+				color: #000;
 			}
 
 			table.alt thead {
@@ -2713,6 +2716,12 @@
 
 		}
 
+/* Content */
+.content {
+	padding-left: 10px;
+	color: #000;
+}
+
 /* Header */
 
 	.subpage {
@@ -2742,7 +2751,7 @@
 
 		#header .inner {
 			margin: 0 auto;
-			position: relative;
+			position: left;
 		}
 
 		#header .logo {
@@ -3018,19 +3027,19 @@
 	}
 
 	#footer .copyright {
-		color: #bbb;
+		color: #222;
 		font-size: 0.8em;
 		margin: 0 0 2em 0;
 		padding: 0;
 	}
 
 		#footer .copyright a {
-			color: #bbb;
+			color: #222;
 			text-decoration: none;
 		}
 
 			#footer .copyright a:hover {
-				color: #bbb;
+				color: blue;
 				text-decoration: underline;
 			}
 
