@@ -27,9 +27,9 @@ jobs:
       uses: sebastianpopp/ftp-action@v2.0.0
       with: 
         host: baconao.net
-        user: baconao_ftp_workout@baconao.net
-        password: 0&619pp1FX-S
-        localDir: workoutJS
+        user: baconao_apps@baconao.net
+        password: zl9bZpo%ZkET
+        localDir: webapps
         remoteDir: .
         
         
