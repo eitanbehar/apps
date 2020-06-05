@@ -1,0 +1,47 @@
+
+/*table, th , td  {
+  border: 1px solid grey;
+  border-collapse: collapse;
+  padding: 5px;
+  font-family: "Lucida Sans", sans-serif;
+  font-size: 120%;
+}
+
+
+table tr:nth-child(odd) {
+  background-color: #f1f1f1;  
+}
+
+table tr:nth-child(even) {
+  background-color: #ffffff;  
+}
+*/
+
+
+table tr:first-child {
+  background: #08B6CE ;
+  font-weight: bold;
+}
+
+/*
+html {
+    font-family: "Lucida Sans", sans-serif;
+    font-size: 120%;
+  }
+
+button {
+    font-family: "Lucida Sans", sans-serif;
+    font-size: 120%;
+}
+
+span {
+  font-family: "Lucida Sans", sans-serif;
+  font-size: 80%;
+}
+
+select {
+    font-family: "Lucida Sans", sans-serif;
+    font-size: 110%;
+}
+
+*/

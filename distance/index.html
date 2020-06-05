@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>      
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="assets/css/main.css" />
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    </head>          
+<body class="subpage">
+    
+    <header id="header">
+        <div class="inner">
+            <a href="index.html" class="logo">>> BACONAO.NET / Distance Calculator</a>
+            <nav id="nav">
+                <a href="\">Home</a>
+                <a href="#">Workout Generator</a>
+                <a href="\blog">Blog</a>
+            </nav>
+            <a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
+        </div>
+    </header>
+
+    <div ng-app="app" ng-controller="controller" class="content">
+        <h4>Calculates straigh distance between two points in Earth<br>
+        ...and to the train stations in Tel Aviv</h4>
+        
+        <div class="6u 12u$(xsmall)">
+            <label>From:
+                <input type="text" name="from" id="from" ng-model="from" placeholder="From (lat, lon)" />
+                (default: Sarona Market)
+            </label>
+        </div>
+        <div class="6u 12u$(xsmall)">
+            <label>To:
+                <input type="text" name="to" id="to" ng-model="to" placeholder="To (lat, lon)" />
+                (default: Gordon Beach)
+            </label>
+        </div>
+        <br>
+        <div id="distance">
+            <button class="submit special" ng-click="calculateDistance()">Calculate Distance</button>
+        </div>        
+        <br>
+        <table>
+            <tr ng-repeat="x in destinations">
+              <td>{{ x.name }}</td>
+              <td>{{ x.distance }}</td>
+            </tr>
+        </table>          
+
+    </div>
+    <br><br>
+    </div>
+</section>
+
+<script src="app.js"></script>
+<script src="controller.js"></script>
+
+<!-- Footer -->
+<footer id="footer">
+    <div class="inner">
+        <div class="flex">
+            <div class="copyright">
+                Issues and requests:<a href="https://github.com/eitanbehar/workout/issues" target="_blank">eitanbehar @ GitHub</a>
+            </div>
+            <ul class="icons">
+                <li><a href="https://www.facebook.com/baconao" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+                <li><a href="https://www.linkedin.com/in/eitanbehar/" class="icon fa-linkedin"><span class="label">linkedIn</span></a></li>
+                <li><a href="https://github.com/eitanbehar/" class="icon fa-github"><span class="label">github</span></a></li>
+                <li><a href="https://www.youtube.com/user/eitanito" class="icon fa-youtube"><span class="label">youtube</span></a></li>							
+                <!--li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>							
+                <li><a href="#" class="icon fa-pinterest-p"><span class="label">Pinterest</span></a></li>
+                <li><a href="#" class="icon fa-vimeo"><span class="label">Vimeo</span></a></li-->
+            </ul>
+        </div>
+    </div>
+</footer>
+
+<!-- Scripts -->
+
+
+</body>
+</html>
