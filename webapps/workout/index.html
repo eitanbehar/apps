@@ -1,96 +1,68 @@
 <!DOCTYPE html>
-<html>      
-    <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="../assets/css/main.css" />
-        <link rel="stylesheet" type="text/css" href="../assets/css/style.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
-    </head>          
-<body class="subpage">
-    
-    <header id="header">
-        <div class="inner">
-            <a href="\" class="logo">>> Baconao.NET</a>
-            <nav id="nav">
-                <a href="\">Home</a>
-                <a href="\apps">Apps</a>
-                <a href="\blog">Blog</a>
-            </nav>
-            <a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
-        </div>
-    </header>
+<html>
 
-    <div ng-app="app" ng-controller="controller" class="content">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../assets/css/main.css" />
+    <link rel="stylesheet" type="text/css" href="../assets/css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="app.js"></script>
+    <script src="controller.js"></script>
+</head>
+
+<body class="subpage" ng-app='app'>
+
+    <header ng-include="'../header.html'"></header>
+
+    <div ng-controller="controller" class="content">
         <h4>Generates workouts based on 3-sets: upper body / core / lower body</h4>
         <label>How is your mood today?
             <select ng-model="selectedMode">
                 <option ng-repeat="m in moods">{{m}}</option>
             </select>
-        </label>        
+        </label>
         <div class="6u$ 12u$(small)">
-            <input id="extra" type="checkbox" ng-model="workoutOptions.extra">            
-            <label for="extra" >Create additional set</label>
+            <input id="extra" type="checkbox" ng-model="workoutOptions.extra">
+            <label for="extra">Create additional set</label>
         </div>
         <div class="6u$ 12u$(small)">
             <input id="bodyweight" name="bodyweight" type="checkbox" ng-model="workoutOptions.bodyweight">
             <label for="bodyweight">Bodyweight</label>
-        </div>        
-        <div class="6u$ 12u$(small)">            
+        </div>
+        <div class="6u$ 12u$(small)">
             <input id="barbell" type="checkbox" ng-model="workoutOptions.barbell">
             <label for="barbell">Barbell</label>
         </div>
-        <div class="6u$ 12u$(small)">        
+        <div class="6u$ 12u$(small)">
             <input id="kettlebell" type="checkbox" ng-model="workoutOptions.kettlebell">
             <label for="kettlebell">Kettlebell</label>
         </div>
         <div class="6u$ 12u$(small)">
             <input id="aerobic" type="checkbox" ng-model="workoutOptions.aerobic">
-            <label for="aerobic">Aerobic</label>        
+            <label for="aerobic">Aerobic</label>
         </div>
         <div id="workouts">
             <button class="submit special" ng-click="generateWorkout()">Create new workout</button>
-        </div>        
+        </div>
         <br>
         <div class="table-wrapper">
-            <table  class="alt">
+            <table class="alt">
                 <tr ng-repeat="d in drills track by $index">
-                <td>{{d.name}}</td>              
-                <td>{{d.type}}</td> 
-                <td>{{d.limit}}</td>
-                <td>{{d.unit}}</td>
+                    <td>{{d.name}}</td>
+                    <td>{{d.type}}</td>
+                    <td>{{d.limit}}</td>
+                    <td>{{d.unit}}</td>
                 </tr>
-            </table>   
-        </div>  
+            </table>
+        </div>
     </div>
     <br><br><br>
     </div>
-</section>
+    </section>
 
-<script src="app.js"></script>
-<script src="controller.js"></script>
-
-<!-- Footer -->
-<footer id="footer">
-    <div class="inner">
-        <div class="flex">
-            <div class="copyright">
-                Issues and requests:<a href="https://github.com/eitanbehar/apps/issues" target="_blank">eitanbehar @ GitHub</a>
-            </div>
-            <ul class="icons">
-                <li><a href="https://www.facebook.com/baconao" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
-                <li><a href="https://www.linkedin.com/in/eitanbehar/" class="icon fa-linkedin"><span class="label">linkedIn</span></a></li>
-                <li><a href="https://github.com/eitanbehar/" class="icon fa-github"><span class="label">github</span></a></li>
-                <li><a href="https://www.youtube.com/user/eitanito" class="icon fa-youtube"><span class="label">youtube</span></a></li>							
-                <!--li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>							
-                <li><a href="#" class="icon fa-pinterest-p"><span class="label">Pinterest</span></a></li>
-                <li><a href="#" class="icon fa-vimeo"><span class="label">Vimeo</span></a></li-->
-            </ul>
-        </div>
-    </div>
-</footer>
-
-<!-- Scripts -->
+    <footer ng-include="'../footer.html'"></footer>
 
 
 </body>
+
 </html>

@@ -10,21 +10,16 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="stylesheet" href="assets/css/main.css" />
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+		<!-- Scripts -->
+			<!--script src="../assets/js/jquery.min.js"></script>
+			<script src="../assets/js/skel.min.js"></script>
+			<script src="../assets/js/util.js"></script>
+			<script src="../assets/js/main.js"></script-->
 	</head>
-	<body class="subpage">
+	<body class="subpage" ng-app="">
 
-		<!-- Header -->
-        <header id="header">
-            <div class="inner">
-                <a href="\" class="logo">>> Baconao.NET</a>
-                <nav id="nav">
-                    <a href="\">Home</a>
-                    <a href="\apps">Apps</a>
-                    <a href="\blog">Blog</a>
-                </nav>
-                <a href="#navPanel" class="navPanelToggle"><span class="fa fa-bars"></span></a>
-            </div>
-        </header>
+		<header ng-include="'header.html'"></header> 
 
 		<!-- Three -->
 			<section id="three" class="wrapper">
@@ -66,31 +61,8 @@
 				</div>
 			</section>
 
-		<!-- Footer -->
-        <footer id="footer">
-            <div class="inner">
-                <div class="flex">
-                    <div class="copyright">
-                        <a href="#">Baconao.NET</a>
-                    </div>
-                    <ul class="icons">
-                        <li><a href="https://www.facebook.com/baconao" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
-                        <li><a href="https://www.linkedin.com/in/eitanbehar/" class="icon fa-linkedin"><span class="label">linkedIn</span></a></li>
-                        <li><a href="https://github.com/eitanbehar/" class="icon fa-github"><span class="label">github</span></a></li>
-                        <li><a href="https://www.youtube.com/user/eitanito" class="icon fa-youtube"><span class="label">youtube</span></a></li>							
-                        <!--li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>							
-                        <li><a href="#" class="icon fa-pinterest-p"><span class="label">Pinterest</span></a></li>
-                        <li><a href="#" class="icon fa-vimeo"><span class="label">Vimeo</span></a></li-->
-                    </ul>
-                </div>
-            </div>
-        </footer>
-
-		<!-- Scripts -->
-			<!--script src="../assets/js/jquery.min.js"></script>
-			<script src="../assets/js/skel.min.js"></script>
-			<script src="../assets/js/util.js"></script>
-			<script src="../assets/js/main.js"></script-->
+			<footer ng-include="'footer.html'"></footer>
+		
 
 	</body>
 </html>
