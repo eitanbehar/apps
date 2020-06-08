@@ -46,7 +46,18 @@ app.controller("controller", function($scope, $http) {
     if(mood == "Lazy")
         drill.limit = Math.round(parseInt(drill.limit) * 0.8);        
     if(mood == "Energetic")
-        drill.limit = Math.round(parseInt(drill.limit) * 1.2);    
-
+        drill.limit = Math.round(parseInt(drill.limit) * 1.2);   
+        
+    if(drill.vid == "")  
+    {        
+        drill.pic = "";
+        drill.url = "";
+    }
+    else
+    {
+        drill.pic = "https://img.youtube.com/vi/" + drill.vid  + "/0.jpg";
+        drill.url = "https://www.youtube.com/watch?v=" + drill.vid ;
+    }
+    
     return drill;
   }

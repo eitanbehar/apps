@@ -5,36 +5,42 @@
              "name": "pushups",
              "type": "bodyweight",
              "limit": "10",
+             "vid": "0pkjOk0EiAk",
              "unit": "reps"
           },
           {
             "name": "press",
             "type": "kettlebell",
             "limit": "10",
+            "vid": "1r7_B5NT6Eo",
             "unit": "reps"
          },
           {
              "name": "press",
              "type": "barbell",
              "limit": "10",
+             "vid": "5yWaNOvgFCM",
              "unit": "reps"
           },
           {
              "name": "push-press",
              "type": "barbell",
              "limit": "10",
+             "vid": "iaBVSJm78ko",
              "unit": "reps"
           },
           {
             "name": "bent-over-row",
             "type": "barbell",
             "limit": "10",
+            "vid": "aFkK8Q1Xb6Y",
             "unit": "reps"
          },
           {
              "name": "snatch",
              "type": "barbell",
              "limit": "10",
+             "vid": "9xQp2sldyts",
              "unit": "reps"
           }
        ],
@@ -43,48 +49,63 @@
              "name": "v-ups",
              "type": "bodyweight",
              "limit": "10",
+             "vid": "7UVgs18Y1P4",
              "unit": "reps"
           },
           {
              "name": "atomic-situps",
              "type": "bodyweight",
              "limit": "10",
+             "vid": "4fjDsUx9oR0",
              "unit": "reps"
           },
           {
              "name": "situps",
              "type": "bodyweight",
              "limit": "15",
+             "vid": "_HDZODOx7Zw",
              "unit": "reps"
           },
           {
              "name": "deadlift",
              "type": "barbell",
              "limit": "15",
+             "vid": "1ZXobu7JvvE",
              "unit": "reps"
           },
           {
              "name": "sumo-deadlift",
              "type": "barbell",
              "limit": "10",
+             "vid": "gh55vVlwlQg",
              "unit": "reps"
           },
           {
             "name": "russian-swing",
             "type": "kettlebell",
             "limit": "15",
+            "vid": "RU88iqRVunk",
             "unit": "reps"
          },
          {
             "name": "american-swing",
             "type": "kettlebell",
             "limit": "12",
+            "vid": "RU88iqRVunk",
+            "unit": "reps"
+         },
+         {
+            "name": "clean",
+            "type": "barbell",
+            "limit": "6",
+            "vid": "Ty14ogq_Vok",
             "unit": "reps"
          },
           {
              "name": "leg-raises",
              "type": "bodyweight",
              "limit": "15",
+             "vid": "Wp4BlxcFTkE",
              "unit": "reps"
           }
        ],
@@ -93,42 +114,63 @@
              "name": "front-lunges",
              "type": "bodyweight",
              "limit": "20",
+             "vid": "L8fvypPrzzs",
              "unit": "reps"
           },
           {
             "name": "air-squats",
             "type": "bodyweight",
             "limit": "20",
+            "vid": "C_VtOYc6j5c",
             "unit": "reps"
          },
+         {
+            "name": "front-squats",
+            "type": "barbell",
+            "limit": "10",
+            "vid": "uYumuL_G_V0",
+            "unit": "reps"
+         },
+         {
+            "name": "back-squats",
+            "type": "barbell",
+            "limit": "10",
+            "vid": "QmZAiBqPvZw",
+            "unit": "reps"
+         },         
          {
             "name": "jumping-lunges",
             "type": "aerobic",
             "limit": "10",
+            "vid": "6SFgE2_og_s",
             "unit": "reps"
          },
          {
-            "name": "gobblet-squats",
+            "name": "goblet-squats",
             "type": "kettlebell",
             "limit": "12",
+            "vid": "1FucOlSntPo",
             "unit": "reps"
          },
          {
             "name": "thrusters",
             "type": "kettlebell",
             "limit": "10",
+            "vid": "lpckX8ZtzxM",
             "unit": "reps"
          },
          {
             "name": "thrusters",
             "type": "barbell",
             "limit": "10",
+            "vid": "L219ltL15zk",
             "unit": "reps"
          },
           {
              "name": "jump-squats",
              "type": "aerobic",
              "limit": "15",
+             "vid": "87ynaOgFplw",
              "unit": "reps"
           }
        ],
@@ -137,18 +179,21 @@
            "name": "pullups",
            "type": "bodyweight",
            "limit": "2",
+           "vid": "HRV5YKKaeVw",
            "unit": "reps"
         },        
         {
            "name": "burpees",
            "type": "aerobic",
            "limit": "5",
+           "vid": "auBLPXO8Fww",
            "unit": "reps"
         },
         {
          "name": "rope jumps",
          "type": "aerobic",
          "limit": "50",
+         "vid": "EwrFMvxMSkk",
          "unit": "reps"
       }
      ]},
@@ -157,12 +202,14 @@
           "name": "As many as you can",
           "type": "Type",
           "limit": "15",
+          "vid": "",
           "unit": "mins"
        },
        {
           "name": "Number of sets in time",
           "type": "Type",
           "limit": "5",
+          "vid": "",
           "unit": "sets"
        }
     ]
