@@ -18,8 +18,7 @@ app.controller("controller", function ($scope) {
     }
 });
 
-function GetDistanceResult(from, to, text)
-{
+function GetDistanceResult(from, to, text) {
     a = new Point(from);
     b = new Point(to);
     d = Distance(a.lat, a.lon, b.lat, b.lon) ;
@@ -28,9 +27,12 @@ function GetDistanceResult(from, to, text)
 
 class Point {
     constructor(coordinates) {
+
+        var address = coordinates.split('@');
+        var coordinates = address[address.length -1];
         var c = coordinates.split(',');
         this.lat = parseFloat(c[0]);
-        this.lon = parseFloat(c[1]);        
+        this.lon = parseFloat(c[1]);                
     }
 }
 
