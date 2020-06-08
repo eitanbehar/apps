@@ -1814,7 +1814,7 @@
 			}
 
 			section.wrapper.style1 header p, article.wrapper.style1 header p {
-				color: #bacee6; //bacee6
+				color: #bacee6;
 			}
 
 			section.wrapper.style1 h3, article.wrapper.style1 h3 {
@@ -2845,13 +2845,14 @@
 
 /* Nav */
 
-	@media screen and (max-width: 300px) {
+	/* don't have the nav panel, hamb menu not working */
+	/*@media screen and (max-width: 980px) {
 
 		#nav {
 			display: none;
 		}
 
-	}
+	}*/
 
 	#navPanel {
 		-moz-transform: translatex(20em);
@@ -2890,7 +2891,7 @@
 			border-top: solid 1px rgba(255, 255, 255, 0.25);
 			color: #d4e0ef;
 			font-weight: 600;
-			display: block;
+			display: inline-block;
 			padding: 0.75em 0;
 			text-decoration: none;
 			font-weight: 300;
@@ -2916,8 +2917,7 @@
 			position: absolute;
 			right: 0;
 			text-align: right;
-			top: 0;
-			vertical-align: middle;
+			top: 0;			
 			width: 5em;
 		}
 
