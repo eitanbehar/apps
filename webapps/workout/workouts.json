@@ -30,6 +30,27 @@
              "unit": "reps"
           },
           {
+            "name": "push-press",
+            "type": "kettlebell",
+            "limit": "10",
+            "vid": "CCqru4q9RK0",
+            "unit": "reps"
+         },
+         {
+            "name": "push-jerk",
+            "type": "barbell",
+            "limit": "10",
+            "vid": "VrHNJXoSyXw",
+            "unit": "reps"
+         },
+         {
+            "name": "push-jerk",
+            "type": "kettlebell",
+            "limit": "10",
+            "vid": "SQ4fdVPMIng",
+            "unit": "reps"
+         },
+          {
             "name": "bent-over-row",
             "type": "barbell",
             "limit": "10",
@@ -97,8 +118,15 @@
          {
             "name": "clean",
             "type": "barbell",
-            "limit": "6",
+            "limit": "5",
             "vid": "Ty14ogq_Vok",
+            "unit": "reps"
+         },
+         {
+            "name": "clean",
+            "type": "kettlebell",
+            "limit": "5",
+            "vid": "ZuTKcP6vtfI",
             "unit": "reps"
          },
           {
@@ -164,6 +192,20 @@
             "type": "barbell",
             "limit": "10",
             "vid": "L219ltL15zk",
+            "unit": "reps"
+         },
+         {
+            "name": "overhead-squats",
+            "type": "barbell",
+            "limit": "5",
+            "vid": "pn8mqlG0nkE",
+            "unit": "reps"
+         },
+         {
+            "name": "overhead-squats",
+            "type": "kettlebell",
+            "limit": "5",
+            "vid": "YtR-WXlR4zQ",
             "unit": "reps"
          },
           {
