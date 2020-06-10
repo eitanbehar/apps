@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../assets/css/main.css" />
+    <link rel="stylesheet" type="text/css" href="../assets/css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="app.js"></script>
+</head>
+
+<body class="subpage" ng-app="app">
+
+    <header ng-include="'../header.html'"></header>
+
+    <div ng-controller="controller" class="content">
+        <h4>Calculates Heart Rate ranges</h4>
+        <div class="4u 12u$(small)">
+            <input type="radio" id="gender-male" name="gender" ng-model="gender" value="male">
+            <label for="gender-male">Male</label>
+        </div>
+        <div class="4u 12u$(small)">
+            <input type="radio" id="gender-female" name="gender" ng-model="gender" value="female">
+            <label for="gender-female">Female</label>
+        </div>
+        <div class="6u 12u$(xsmall)">
+            <label>Age:
+                <input type="text" name="age" id="age" ng-model="age" placeholder="Age" />
+            </label>
+        </div>
+        <div class="6u 12u$(xsmall)">
+            <label>Weight:
+                <input type="text" name="weight" id="weight" ng-model="weight" placeholder="Weight (kg)" />
+            </label>
+        </div>
+        <div class="6u 12u$(xsmall)">
+            <label>Resting Heart Rate:
+                <input type="text" name="rhr" id="rhr" ng-model="rhr" placeholder="Resting Heart Rate" />
+            </label>
+        </div>
+        <div class="6u 12u$(xsmall)">
+            <label>Training time:
+                <input type="text" name="time" id="time" ng-model="time" placeholder="Time (mins)" />
+            </label>
+            <p>Used to calculate calories burned in different heart rate zones</p>
+        </div>
+
+        <div id="distance">
+            <button class="submit special" ng-click="calculateHRZones()">Calculate</button>
+        </div>
+        <br>
+        <div>
+            <h4 ng-show="show_max_hr">Maximum Heart Rate: <strong>{{max_hr}}</strong></h4>
+        </div>
+
+        <div class="table-wrapper">
+            <table class="alt">
+                <tr ng-repeat="x in hrzones">
+                    <td>{{ x.name }}</td>
+                    <td>{{ x.type }}</td>
+                    <td>{{ x.range.perc }}</td>
+                    <td>{{ x.range.hr }}</td>
+                    <td>{{ x.range.kcal }}</td>
+                    <td>{{ x.range.fat }}</td>
+                    <td>{{ x.desc }}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <br><br>
+    <div>
+        <h4>Disclaimer:</h4>
+        <label>Don't use this information for medical purposes, consult a physician or sport specialist<br>
+            This is only a general guideline for general knowledge</label>
+    </div>
+
+    <ol class="6u$ 12u$(small)">
+        <label>References:
+            <li><a href="http://nowlin.com/heartrate.htm">http://nowlin.com/heartrate.htm</a></li>
+            <li><a
+                    href="https://www.verywellfit.com/heart-zone-training-3432619">https://www.verywellfit.com/heart-zone-training-3432619</a>
+            </li>
+            <li><a
+                    href="https://www.livestrong.com/article/520860-do-you-really-burn-fat-faster-at-a-lower-heart-rate/">https://www.livestrong.com/article/520860-do-you-really-burn-fat-faster-at-a-lower-heart-rate/</a>
+            </li>
+        </label>
+    </ol>
+    </div>
+    </section>
+
+    <footer ng-include="'../footer.html'"></footer>
+
+</body>
+
+</html>
