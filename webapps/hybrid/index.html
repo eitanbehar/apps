@@ -50,7 +50,7 @@
                         <td><input type="text" ng-model="km_per_year"></td>                        
                     </tr>                    
                     <tr>
-                        <td>Devaluation</td>
+                        <td>Devaluation %</td>
                         <td><input type="text" ng-model="devaluation"></td>
                     </tr>
                     <tr>
@@ -70,8 +70,8 @@
                 <tbody>
                     <tr>
                         <td>Fuel cost / month</td>
-                        <td><label>{{((km_per_year / 12) / hybrid.consumption) * fuel_price | currency}}</label></td>
-                        <td><label>{{((km_per_year / 12) / turbo.consumption * fuel_price)  | currency}}</label></td>
+                        <td><label>{{((km_per_year / 12) / hybrid.consumption) * fuel_price | currency: ""}}</label></td>
+                        <td><label>{{((km_per_year / 12) / turbo.consumption * fuel_price)  | currency: ""}}</label></td>
                     </tr>                    
                     <tr>
                         <td>Liters / month</td>
@@ -80,24 +80,24 @@
                     </tr> 
                     <tr>
                         <td>Car value after {{ interval_in_years }} years</td>
-                        <td><label>{{ hybrid.price * ((100 - devaluation)/100) | currency}}</label></td>
-                        <td><label>{{ turbo.price * ((100 - devaluation)/100) | currency}}</label></td>
+                        <td><label>{{ hybrid.price * ((100 - devaluation)/100) | currency: ""}}</label></td>
+                        <td><label>{{ turbo.price * ((100 - devaluation)/100) | currency: ""}}</label></td>
                     </tr> 
                     <tr>
                         <td>Lost car value due to devaluation after {{ interval_in_years }} years</td>
-                        <td><label>{{ hybrid.price * ((devaluation)/100) | currency}}</label></td>
-                        <td><label>{{ turbo.price * ((devaluation)/100) | currency}}</label></td>
+                        <td><label>{{ hybrid.price * ((devaluation)/100) | currency: ""}}</label></td>
+                        <td><label>{{ turbo.price * ((devaluation)/100) | currency: ""}}</label></td>
                     </tr> 
                     <tr>
                         <td>Fuel and devaluation cost after {{ interval_in_years }} years</td>
-                        <td><label>{{ ((((km_per_year / 12) / hybrid.consumption) * fuel_price) * 12 * interval_in_years) + (hybrid.price * ((devaluation)/100)) | currency}}</label></td>
-                        <td><label>{{ ((((km_per_year / 12) / turbo.consumption) * fuel_price) * 12 * interval_in_years) + (turbo.price * ((devaluation)/100)) | currency}}</label></td>
+                        <td><label>{{ ((((km_per_year / 12) / hybrid.consumption) * fuel_price) * 12 * interval_in_years) + (hybrid.price * ((devaluation)/100)) | currency: ""}}</label></td>
+                        <td><label>{{ ((((km_per_year / 12) / turbo.consumption) * fuel_price) * 12 * interval_in_years) + (turbo.price * ((devaluation)/100)) | currency: ""}}</label></td>
                     </tr>        
                 </tbody>
                 <tfoot>
                     <tr>
                         <td colspan="2"><label>a positive difference means that <bold>Hybrid</bold> is more expensive</label></td>
-                        <td>Cost Difference (Hybrid - Turbo) = {{ (((((km_per_year / 12) / hybrid.consumption) * fuel_price) * 12 * interval_in_years) + (hybrid.price * ((devaluation)/100))) - (((((km_per_year / 12) / turbo.consumption) * fuel_price) * 12 * interval_in_years) + (turbo.price * ((devaluation)/100))) | currency}}</td>
+                        <td>Cost Difference (Hybrid - Turbo) = {{ (((((km_per_year / 12) / hybrid.consumption) * fuel_price) * 12 * interval_in_years) + (hybrid.price * ((devaluation)/100))) - (((((km_per_year / 12) / turbo.consumption) * fuel_price) * 12 * interval_in_years) + (turbo.price * ((devaluation)/100))) | currency: ""}}</td>
                     </tr>
                 </tfoot>
             </table>
