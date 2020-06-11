@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../assets/css/main.css" />
+    <link rel="stylesheet" type="text/css" href="../assets/css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="app.js"></script>
+</head>
+
+<body class="subpage" ng-app="app">
+
+    <header ng-include="'../header.html'"></header>
+
+
+    <div ng-controller="controller" class="content">
+
+        <h3>Compares fuel consumption and cost between hybrid and turbo-engine cars</h3>
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Hybrid</th>
+                        <th>Turbo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Price</td>
+                        <td><input type="text" ng-model="hybrid.price"></td>
+                        <td><input type="text" ng-model="turbo.price"></td>
+                    </tr>
+                    <tr>
+                        <td>Consumption (km/l)</td>
+                        <td><input type="text" ng-model="hybrid.consumption"></td>
+                        <td><input type="text" ng-model="turbo.consumption"></td>
+                    </tr>
+                </tbody>
+            </table>        
+            <table>
+                <tbody>
+                    <tr>
+                        <td>Fuel price</td>
+                        <td><input type="text" ng-model="fuel_price"></td>
+                    </tr>
+                    <tr>
+                        <td>Km per year</td>
+                        <td><input type="text" ng-model="km_per_year"></td>                        
+                    </tr>                    
+                    <tr>
+                        <td>Devaluation</td>
+                        <td><input type="text" ng-model="devaluation"></td>
+                    </tr>
+                    <tr>
+                        <td>Interval in years</td>
+                        <td><input type="text" ng-model="interval_in_years"></td>
+                    </tr>
+                </tbody>                
+            </table>
+            <table>
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Hybrid</th>
+                        <th>Turbo</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Fuel cost / month</td>
+                        <td><label>{{((km_per_year / 12) / hybrid.consumption) * fuel_price | currency}}</label></td>
+                        <td><label>{{((km_per_year / 12) / turbo.consumption * fuel_price)  | currency}}</label></td>
+                    </tr>                    
+                    <tr>
+                        <td>Liters / month</td>
+                        <td><label>{{(km_per_year / 12) / hybrid.consumption | number}}</label></td>
+                        <td><label>{{(km_per_year / 12) / turbo.consumption  | number}}</label></td>                        
+                    </tr> 
+                    <tr>
+                        <td>Car value after {{ interval_in_years }} years</td>
+                        <td><label>{{ hybrid.price * ((100 - devaluation)/100) | currency}}</label></td>
+                        <td><label>{{ turbo.price * ((100 - devaluation)/100) | currency}}</label></td>
+                    </tr> 
+                    <tr>
+                        <td>Lost car value due to devaluation after {{ interval_in_years }} years</td>
+                        <td><label>{{ hybrid.price * ((devaluation)/100) | currency}}</label></td>
+                        <td><label>{{ turbo.price * ((devaluation)/100) | currency}}</label></td>
+                    </tr> 
+                    <tr>
+                        <td>Fuel and devaluation cost after {{ interval_in_years }} years</td>
+                        <td><label>{{ ((((km_per_year / 12) / hybrid.consumption) * fuel_price) * 12 * interval_in_years) + (hybrid.price * ((devaluation)/100)) | currency}}</label></td>
+                        <td><label>{{ ((((km_per_year / 12) / turbo.consumption) * fuel_price) * 12 * interval_in_years) + (turbo.price * ((devaluation)/100)) | currency}}</label></td>
+                    </tr>        
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="2"><label>a positive difference means that <bold>Hybrid</bold> is more expensive</label></td>
+                        <td>Cost Difference (Hybrid - Turbo) = {{ (((((km_per_year / 12) / hybrid.consumption) * fuel_price) * 12 * interval_in_years) + (hybrid.price * ((devaluation)/100))) - (((((km_per_year / 12) / turbo.consumption) * fuel_price) * 12 * interval_in_years) + (turbo.price * ((devaluation)/100))) | currency}}</td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+
+
+
+        <footer ng-include="'../footer.html'"></footer>
+
+</body>
+
+</html>
