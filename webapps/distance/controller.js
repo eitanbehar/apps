@@ -25,11 +25,11 @@ function GetDistanceResult(from, to, text) {
     
     toUrled = "";
     if(text == "To selected destination")
-        toUrled = to;
+        toUrled = b.coordinates;
     else
         toUrled = text.replace(' ', '+');
 
-    return {name: text, distance: d + " meters", map: `https://www.google.com/maps/dir/?api=1&origin=${a.lat},${a.lon}&destination=${toUrled}&travelmode=walking` };
+    return {name: text, distance: d + " meters", map: `https://www.google.com/maps/dir/?api=1&origin=${a.coordinates}&destination=${toUrled}&travelmode=walking` };
 }
 
 class Point {
@@ -39,7 +39,8 @@ class Point {
         var coordinates = address[address.length -1];
         var c = coordinates.split(',');
         this.lat = parseFloat(c[0]);
-        this.lon = parseFloat(c[1]);                
+        this.lon = parseFloat(c[1]); 
+        this.coordinates = `${this.lat},${this.lon}`;
     }
 }
 
