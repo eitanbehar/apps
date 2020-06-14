@@ -2,17 +2,17 @@ app.controller("controller", function ($scope) {
 
 
     $scope.from = "32.0709839,34.7851076"; // sarona market
-    $scope.to = "32.0831482,34.7651349"; // gordon beach
+    $scope.to = "32.0740769,34.7900141"; // azrieli
 
     $scope.calculateDistance = function () {
 
         let destinations = [];
 
         destinations.push(GetDistanceResult($scope.from, $scope.to, "To selected destination"));
-        destinations.push(GetDistanceResult($scope.from, "32.054062,34.7826012", "To Tel Aviv HaHagana Train Station"));
-        destinations.push(GetDistanceResult($scope.from, "32.0784123,34.7905662", "To Tel Aviv HaShalom Train Station"));
-        destinations.push(GetDistanceResult($scope.from, "32.083944,34.7954446", "To Tel Aviv Savidor Train Station"));
-        destinations.push(GetDistanceResult($scope.from, "32.1033559,34.802656", "To Tel Aviv University Train Station"));
+        destinations.push(GetDistanceResult($scope.from, "32.054062,34.7826012", "Tel Aviv HaHagana Railway Station"));
+        destinations.push(GetDistanceResult($scope.from, "32.0784123,34.7905662", "Tel Aviv HaShalom Railway Station"));
+        destinations.push(GetDistanceResult($scope.from, "32.083944,34.7954446", "Tel Aviv Savidor Railway Station"));
+        destinations.push(GetDistanceResult($scope.from, "32.1033559,34.802656", "Tel Aviv University Train Station"));
 
          $scope.destinations = destinations;
     }
@@ -22,7 +22,14 @@ function GetDistanceResult(from, to, text) {
     a = new Point(from);
     b = new Point(to);
     d = Distance(a.lat, a.lon, b.lat, b.lon) ;
-    return {name: text, distance: d + " meters" };
+    
+    toUrled = "";
+    if(text == "To selected destination")
+        toUrled = to;
+    else
+        toUrled = text.replace(' ', '+');
+
+    return {name: text, distance: d + " meters", map: `https://www.google.com/maps/dir/?api=1&origin=${from}&destination=${toUrled}&travelmode=walking` };
 }
 
 class Point {

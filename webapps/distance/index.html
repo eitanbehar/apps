@@ -29,7 +29,7 @@
         <div class="6u 12u$(xsmall)">
             <label>To:
                 <input type="text" name="to" id="to" ng-model="to" placeholder="To (lat, lon)" />
-                (default: Gordon Beach)
+                (default: Azrieli Towers)
             </label>
         </div>
         <br>
@@ -41,6 +41,7 @@
             <tr ng-repeat="x in destinations">
                 <td>{{ x.name }}</td>
                 <td>{{ x.distance }}</td>
+                <td><a href="{{ x.map }}" target="_blank" class="button special">Directions</a></td>
             </tr>
         </table>
 
