@@ -1,8 +1,10 @@
-app.controller("controller", function ($scope) {
+app.controller("controller", function ($scope, $http) {
 
 
     $scope.from = "32.0709839,34.7851076"; // sarona market
     $scope.to = "32.0740769,34.7900141"; // azrieli
+    $scope.fromAddress = "Sarona Market Tel Aviv";
+    $scope.toAddress = "Azrieli Tel Aviv";
 
     $scope.calculateDistance = function () {
 
@@ -16,7 +18,47 @@ app.controller("controller", function ($scope) {
 
          $scope.destinations = destinations;
     }
+
+    $scope.getCoordinates = function (target, address) {
+        console.log(target, address);
+        res = getCoordinates($http, address);
+        if(target == 0) {        
+            $scope.fromAddressList = res;            
+        } else {
+            $scope.toAddressList = res;            
+        }
+        
+    }    
+
+    $scope.selectAddress = function(target, address) {
+        
+        if(target == 0) {
+            $scope.from = address.coordinates;
+            $scope.fromAddress = address.name;
+            $scope.fromAddressList = null;
+        } else
+        {
+            $scope.to = address.coordinates;
+            $scope.toAddress = address.name;
+            $scope.toAddressList = null;
+        }
+    }
+
 });
+
+function getCoordinates(http, address)
+{
+    let addresses = [];
+    queryUrl = `https://eu1.locationiq.com/v1/search.php?key=7a5d887e3e47df&q=${address}&format=json`;
+    http.get(queryUrl).then(function (response) {
+        console.log(response.data);
+        for(i = 0; i < response.data.length; i++){ 
+            address = { name: response.data[i].display_name, coordinates: `${response.data[i].lat},${response.data[i].lon}`};
+            addresses.push(address);
+        }
+    });
+    return addresses;
+}
 
 function GetDistanceResult(from, to, text) {
     a = new Point(from);
