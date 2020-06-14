@@ -29,7 +29,7 @@ function GetDistanceResult(from, to, text) {
     else
         toUrled = text.replace(' ', '+');
 
-    return {name: text, distance: d + " meters", map: `https://www.google.com/maps/dir/?api=1&origin=${from}&destination=${toUrled}&travelmode=walking` };
+    return {name: text, distance: d + " meters", map: `https://www.google.com/maps/dir/?api=1&origin=${a.lat},${a.lon}&destination=${toUrled}&travelmode=walking` };
 }
 
 class Point {
