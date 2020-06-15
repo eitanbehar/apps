@@ -10,6 +10,8 @@ app.controller("controller", function ($scope, $http) {
 
         let destinations = [];
 
+        console.log($scope.from);
+
         destinations.push(GetDistanceResult($scope.from, $scope.to, "To selected destination"));
         destinations.push(GetDistanceResult($scope.from, "32.054062,34.7826012", "Tel Aviv HaHagana Railway Station"));
         destinations.push(GetDistanceResult($scope.from, "32.0784123,34.7905662", "Tel Aviv HaShalom Railway Station"));
@@ -35,13 +37,14 @@ app.controller("controller", function ($scope, $http) {
         if(target == 0) {
             $scope.from = address.coordinates;
             $scope.fromAddress = address.name;
-            $scope.fromAddressList = null;
+            $scope.fromAddressList = null;            
         } else
         {
             $scope.to = address.coordinates;
             $scope.toAddress = address.name;
             $scope.toAddressList = null;
         }
+        $scope.destinations = null;
     }
 
 });
@@ -71,7 +74,7 @@ function GetDistanceResult(from, to, text) {
     else
         toUrled = text.replace(' ', '+');
 
-    return {name: text, distance: d + " meters", map: `https://www.google.com/maps/dir/?api=1&origin=${a.coordinates}&destination=${toUrled}&travelmode=walking` };
+    return {name: text, distance: d, map: `https://www.google.com/maps/dir/?api=1&origin=${a.coordinates}&destination=${toUrled}&travelmode=walking` };
 }
 
 class Point {
