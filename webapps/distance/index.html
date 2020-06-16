@@ -15,24 +15,36 @@
     <header ng-include="'../header.html'"></header>
 
     <div ng-controller="controller" class="content">
-        <h4>Calculates straigh distance between two points in Earth<br>
-            ...and to the train stations in Tel Aviv</h4>
-        <label>Enter address and click 'Get Coordinates':</label>
+        <h4>Distance Calculator: straigh distance between two points in Earth, and to the train stations in Tel Aviv</h4>
         <tr>
             <table>
                 <td>
+                    <table>                        
+                            <tr>
+                                <td>
                     <div class="6u 12u$(xsmall)">
-                        <label>From:
+                        <label>From address:
                             <input type="text" name="from" id="from" ng-model="fromAddress"
                                 placeholder="From (lat, lon)" />
-                            {{ from }}
-                        </label>
+                           
+                        </label>                        
                     </div>
-                </td>
-                <td style="vertical-align:middle">
+                    </td>
+                    <td style="vertical-align:middle">
                     <button class="button special small" ng-click="getCoordinates(0, fromAddress)">Get
                         Coordinates</button>
-                </td>
+                    </td>
+                    </tr>
+                <tr>
+                    <td>
+                        <label> or coordinates: lat, lon:
+                            <input type="text" name="fromCoord" id="fromCoord" ng-model="from"
+                            placeholder="From (lat, lon)" /></label>
+                    </td>
+                </tr>
+                
+            </table>
+        </td>
                 <td>
                     <table>
                         <tr ng-repeat="fromAddressElement in fromAddressList">
@@ -71,7 +83,9 @@
         </tr>
         </table>
         <div id="distance">
-            <button class="submit special" ng-click="calculateDistance()">Calculate Distance</button>
+            
+                <button class="submit special" ng-click="calculateDistance()">Calculate Distance</button>
+                <label></label>Distance is calculated using the coordinate (lat,lon) values.</label>
         </div>
         <br>
         <table>
