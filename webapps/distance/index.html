@@ -15,81 +15,109 @@
     <header ng-include="'../header.html'"></header>
 
     <div ng-controller="controller" class="content">
-        <h4>Distance Calculator: straigh distance between two points in Earth, and to the train stations in Tel Aviv</h4>
-        <tr>
+        <h4>Distance Calculator: straigh distance between two points in Earth, and to the train stations in Tel Aviv
+        </h4>
+        <div class="table-wrapper">
             <table>
-                <td>
-                    <table>                        
-                            <tr>
-                                <td>
-                    <div class="6u 12u$(xsmall)">
-                        <label>From address:
-                            <input type="text" name="from" id="from" ng-model="fromAddress"
-                                placeholder="From (lat, lon)" />
-                           
-                        </label>                        
-                    </div>
-                    </td>
-                    <td style="vertical-align:middle">
-                    <button class="button special small" ng-click="getCoordinates(0, fromAddress)">Get
-                        Coordinates</button>
-                    </td>
-                    </tr>
                 <tr>
                     <td>
-                        <label> or coordinates: lat, lon:
-                            <input type="text" name="fromCoord" id="fromCoord" ng-model="from"
-                            placeholder="From (lat, lon)" /></label>
+                        <table>
+                            <tr>
+                                <td>
+                                    <div class="6u 12u$(xsmall)">
+                                        <label>From address:
+                                            <input type="text" name="from" id="from" ng-model="fromAddress"
+                                                placeholder="Address" />
+
+                                        </label>
+                                    </div>
+                                </td>
+                                <td style="vertical-align:middle">
+                                    <i class="fa fa-circle-thin" style="font-size:20px;color:gray" ng-click="clearAddress(0)"></i>	                                    
+                                </td>
+                                <td style="vertical-align:middle">
+                                    <button class="button special small" ng-click="getCoordinates(0, fromAddress)">Get
+                                        Coordinates</button>                                    
+                                </td>                                
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label> or coordinates: lat, lon:
+                                        <input type="text" name="fromCoord" id="fromCoord" ng-model="from"
+                                            placeholder="From (lat, lon)" /></label>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td>
+                        <table>
+                            <tr ng-repeat="fromAddressElement in fromAddressList">
+                                <td>
+                                    {{ fromAddressElement.name }}
+                                </td>
+                                <td style="vertical-align:middle">
+                                    <button class="button special small"
+                                        ng-click="selectAddress(0, fromAddressElement)">Select</button>
+                                </td>
+                            </tr>
+                        </table>
                     </td>
                 </tr>
-                
+                <tr>
+                    <td>
+                        <table>
+                            <tr>
+                                <td>
+                                    <div class="6u 12u$(xsmall)">
+                                        <label>To address:
+                                            <input type="text" name="to" id="to" ng-model="toAddress"
+                                                placeholder="Address" />
+
+                                        </label>
+                                    </div>
+                                </td>
+                                <td style="vertical-align:middle">
+                                    <i class="fa fa-circle-thin" style="font-size:20px;color:gray" ng-click="clearAddress(1)"></i>	
+                                </td>
+                                <td style="vertical-align:middle">
+                                    <button class="button special small" ng-click="getCoordinates(1, toAddress)">Get
+                                        Coordinates</button>                                    
+                                </td>                                
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label> or coordinates: lat, lon:
+                                        <input type="text" name="toCoord" id="tomCoord" ng-model="to"
+                                            placeholder="To (lat, lon)" /></label>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td>
+                        <table>
+                            <tr ng-repeat="toAddressElement in toAddressList">
+                                <td>
+                                    {{ toAddressElement.name }}
+                                </td>
+                                <td style="vertical-align:middle">
+                                    <button class="button special small"
+                                        ng-click="selectAddress(1, toAddressElement)">Select</button>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
             </table>
-        </td>
-                <td>
-                    <table>
-                        <tr ng-repeat="fromAddressElement in fromAddressList">
-                            <td>{{ fromAddressElement.name }}</td>
-                            <td style="vertical-align:middle">
-                                <button class="button special small"
-                                    ng-click="selectAddress(0, fromAddressElement)">Select</button>
-                            </td>
-                        </tr>
-                    </table>
-                </td>
-        </tr>
-        <tr>
-            <td>
-                <div class="6u 12u$(xsmall)">
-                    <label>To:
-                        <input type="text" name="to" id="to" ng-model="toAddress" placeholder="To (lat, lon)" />
-                        {{ to }}
-                    </label>
-                </div>
-            </td>
-            <td style="vertical-align:middle">
-                <button class="button special small" ng-click="getCoordinates(1, toAddress)">Get Coordinates</button>
-            </td>
-            <td>
-                <table>
-                    <tr ng-repeat="toAddressElement in toAddressList">
-                        <td>{{ toAddressElement.name }}</td>
-                        <td style="vertical-align:middle">
-                            <button class="button special small"
-                                ng-click="selectAddress(1, toAddressElement)">Select</button>
-                        </td>
-                    </tr>
-                </table>
-            </td>
-        </tr>
-        </table>
+        </div>
+
         <div id="distance">
-            
-                <button class="submit special" ng-click="calculateDistance()">Calculate Distance</button>
-                <label></label>Distance is calculated using the coordinate (lat,lon) values.</label>
+
+            <button class="submit special" ng-click="calculateDistance()">Calculate Distance</button>
+            <label></label>Distance is calculated using the coordinate (lat,lon) values.</label>
         </div>
         <br>
         <table>
-            <tr ng-repeat="x in destinations">
+            <tr ng-repeat="x in destinations | orderBy: 'distance'">
                 <td>{{ x.name }}</td>
                 <td>{{ x.distance }}</td>
                 <td><a href="{{ x.map }}" target="_blank" class="button special small">Directions</a></td>

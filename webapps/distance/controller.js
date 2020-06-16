@@ -10,50 +10,61 @@ app.controller("controller", function ($scope, $http) {
 
         let destinations = [];
 
+        console.log($scope.from);
+
         destinations.push(GetDistanceResult($scope.from, $scope.to, "To selected destination"));
         destinations.push(GetDistanceResult($scope.from, "32.054062,34.7826012", "Tel Aviv HaHagana Railway Station"));
         destinations.push(GetDistanceResult($scope.from, "32.0784123,34.7905662", "Tel Aviv HaShalom Railway Station"));
         destinations.push(GetDistanceResult($scope.from, "32.083944,34.7954446", "Tel Aviv Savidor Railway Station"));
         destinations.push(GetDistanceResult($scope.from, "32.1033559,34.802656", "Tel Aviv University Train Station"));
 
-         $scope.destinations = destinations;
+        $scope.destinations = destinations;
     }
 
     $scope.getCoordinates = function (target, address) {
         console.log(target, address);
         res = getCoordinates($http, address);
-        if(target == 0) {        
-            $scope.fromAddressList = res;            
+        if (target == 0) {
+            $scope.fromAddressList = res;
         } else {
-            $scope.toAddressList = res;            
+            $scope.toAddressList = res;
         }
-        
-    }    
+    }
 
-    $scope.selectAddress = function(target, address) {
-        
-        if(target == 0) {
+    $scope.clearAddress = function (target) {
+        if (target == 0) {
+            $scope.fromAddress = "";
+            $scope.fromAddressList =  null;
+        }
+        else {
+            $scope.toAddress = "";
+            $scope.toAddressList =  null;
+        }
+    }
+
+    $scope.selectAddress = function (target, address) {
+
+        if (target == 0) {
             $scope.from = address.coordinates;
             $scope.fromAddress = address.name;
             $scope.fromAddressList = null;
-        } else
-        {
+        } else {
             $scope.to = address.coordinates;
             $scope.toAddress = address.name;
             $scope.toAddressList = null;
         }
+        $scope.destinations = null;
     }
 
 });
 
-function getCoordinates(http, address)
-{
+function getCoordinates(http, address) {
     let addresses = [];
     queryUrl = `https://eu1.locationiq.com/v1/search.php?key=7a5d887e3e47df&q=${address}&format=json`;
     http.get(queryUrl).then(function (response) {
         console.log(response.data);
-        for(i = 0; i < response.data.length; i++){ 
-            address = { name: response.data[i].display_name, coordinates: `${response.data[i].lat},${response.data[i].lon}`};
+        for (i = 0; i < response.data.length; i++) {
+            address = { name: response.data[i].display_name, coordinates: `${response.data[i].lat},${response.data[i].lon}` };
             addresses.push(address);
         }
     });
@@ -63,32 +74,32 @@ function getCoordinates(http, address)
 function GetDistanceResult(from, to, text) {
     a = new Point(from);
     b = new Point(to);
-    d = Distance(a.lat, a.lon, b.lat, b.lon) ;
-    
+    d = Distance(a.lat, a.lon, b.lat, b.lon);
+
     toUrled = "";
-    if(text == "To selected destination")
+    if (text == "To selected destination")
         toUrled = b.coordinates;
     else
         toUrled = text.replace(' ', '+');
 
-    return {name: text, distance: d + " meters", map: `https://www.google.com/maps/dir/?api=1&origin=${a.coordinates}&destination=${toUrled}&travelmode=walking` };
+    return { name: text, distance: d, map: `https://www.google.com/maps/dir/?api=1&origin=${a.coordinates}&destination=${toUrled}&travelmode=walking` };
 }
 
 class Point {
     constructor(coordinates) {
 
         var address = coordinates.split('@');
-        var coordinates = address[address.length -1];
+        var coordinates = address[address.length - 1];
         var c = coordinates.split(',');
         this.lat = parseFloat(c[0]);
-        this.lon = parseFloat(c[1]); 
+        this.lon = parseFloat(c[1]);
         this.coordinates = `${this.lat},${this.lon}`;
     }
 }
 
 // https://www.mapanet.eu/EN/resources/Script-Distance.htm
 function Distance(lat1, lon1, lat2, lon2) {
-   
+
     rad = function (x) { return x * Math.PI / 180; }
 
     var R = 6378.137;                  //Earth radius in km (WGS84)
