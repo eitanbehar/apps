@@ -19,147 +19,81 @@
         <table>
             <tr>
                 <td></td>
-                <td>Fuel price:</td>
-                <td>Km/year</td>
+                <td>Fuel price: <input type="text" ng-model="fuel_price"></td>
+                <td>Km/year: <input type="text" ng-model="km_per_year"></td>
+            </tr>            
+            <tr>
+                <td><strong>Private</strong></td>                
+            </tr>
+            <tr>
+                <td>Price:<input type="text" ng-model="private.price"></td>
+                <td>Avg Km/liter:<input type="text" ng-model="private.km_per_liter"></td>
+                <td>Fuel Cost/month:<h4>{{ ((km_per_year / 12) / private.km_per_liter) * fuel_price | currency:""}}</h4></td>                
+            </tr>            
+            <tr>
+                <td>Insurances (/yr):<input type="text" ng-model="private.insurance"></td>
+                <td>Rishui (/yr):<input type="text" ng-model="private.rishui"></td>
+                <td>Service:<input type="text" ng-model="private.tipul"></td>
+            </tr>
+            <tr>
+                <td>Total /month</td>
+                <td><h4>
+                    {{ (+private.tipul + +private.rishui + +private.insurance) /12 + (((km_per_year / 12) / private.km_per_liter) * fuel_price) | currency:"" }}
+                </h4></td>
             </tr>
             <tr>
                 <td></td>
-                <td>Fuel cost / month< </td>
-                <td>Avg Km/liter</td>
-                <td>Car price</td>
-            </tr>
-            <tr>
-                <td>Car 1</td>
-                <td>מממ</td>
-                <td>11</td>
-                <td>110</td>
-            </tr>
-            <tr>
-                <td>Car 2</td>
-                <td>nn</td>
-                <td>11</td>
-                <td> 110</td>
-            </tr>
-            <tr>
-                <td></td>
-                <td>Car 1</td>
-                <td>Car 2</td>
-            </tr>
-            <tr>
-                <td>insurance</td>
-                <td>4000</td>
-                <td>4500</td>
-            </tr>
-            <tr>
-                <td>tipul</td>
-                <td>1000</td>
-                <td>1200</td>
-            </tr>
-            <tr>
-                <td>total monthly expenses</td>
-                <td>sum()</td>
-                <td>sum()</td>
-            </tr>
-            <tr>
-                <td>Costs for a 5 years loan (balloon)</td>
-                <td>Car 1</td>
-                <td>Car 2</td>
-                <td>Private Lease</td>
-                <td>Company Lease</td>
-            </tr>
-            <tr>
-                <td>Car price</td>
-                <td>100</td>
-                <td>130</td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td>Initial payment</td>
-                <td></td>
-                <td></td>
-                <td>8900</td>
-                <td></td>
-            </tr>
+                <td>Private</td>
+                <td><a 
+                    href="https://www.shlomo.co.il/car/%D7%9E%D7%A1%D7%9C%D7%95%D7%9C_%D7%9C%D7%99%D7%A1%D7%99%D7%A0%D7%92_%D7%A4%D7%A8%D7%98%D7%99" 
+                    target="_blank">Private Leasing</a></td>
+                <td>Company Leasing</td>
+            </tr>                        
             <tr>
                 <td>Balloon Loan</td>
-                <td></td>
-                <td></td>
-                <td>8900</td>
-                <td></td>
-            </tr>
-            <tr>
-                <td>Credit loan</td>
-                <td></td>
-                <td></td>
-                <td>8900</td>
-                <td></td>
-            </tr>
-            <tr>
-                <td>Interes</td>
-                <td></td>
-                <td></td>
-                <td>8900</td>
-                <td></td>
-            </tr>
+                <td><h4>{{ private.price / 2 | currency:"" }}</h4></td>
+                <td>Initial Payment:<input type="text" ng-model="leasing_private.initial"></td>
+                <td>Benefits lost (monthly):<input type="text" ng-model="leasing_company.benefits_lost"></td>
+            </tr>                        
             <tr>
                 <td>Monthly payment</td>
-                <td></td>
-                <td></td>
-                <td>8900</td>
-                <td></td>
+                <td><h4>{{ (private.price / 120) * 1.05 | currency:"" }}</h4></td>
+                <td><input type="text" ng-model="leasing_private.monthly"></td>
+                <td><input type="text" ng-model="leasing_company.monthly"></td>
             </tr>
             <tr>
-                <td>3 years calc</td>                
+                <td><strong>Costs 3 years</strong></td>
             </tr>
             <tr>
-                <td>Car devaluation (%)</td>
-                <td>40</td>
-                <td>40</td>                
+                <td>Car value after 3 years</td>
+                <td><input type="text" ng-model="private.devaluated"></td>
             </tr>
             <tr>
-                <td>Loan paid</td>
-                <td></td>
-                <td></td>                
-            </tr>
+                <td><strong></strong>Monthly costs</strong></td>
+                <td><h4>{{ (((+private.price - +private.devaluated) * 1.05) / 36) + (+private.tipul + +private.rishui + +private.insurance) /12 + (((km_per_year / 12) / private.km_per_liter) * fuel_price) | currency:"" }}</h4></td>                
+                <td>incl fuel and rishui</td>
+                <td>incl benefits lost (savings)</td>
+            </tr>            
             <tr>
-                <td>Debt to the agency</td>
-                <td></td>
-                <td></td>                
-            </tr>
-            <tr>
-                <td>Total debt incl balloon</td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td>Difference sale</td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td>Actual monthly</td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td>Actual monthly + fuel</td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td>Total monthly</td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td>Total 3 years incl fuel</td>
-                <td></td>
-                <td></td>
+                <td>Cost /year</td>
+                <td><h3>{{ (((+private.price - +private.devaluated) * 1.05) / 3) + (+private.tipul + +private.rishui + +private.insurance) + ((km_per_year / private.km_per_liter) * fuel_price) | currency:"" }}</h3></td>
+                <td><h3>{{ (+leasing_private.initial + +private.rishui) / 3 + (leasing_private.monthly * 12) + ((km_per_year / private.km_per_liter) * fuel_price) | currency:"" }}</h3></td>
+                <td><h3>{{ (+leasing_company.monthly + +leasing_company.benefits_lost) * 12 | currency:"" }} </h3></td>
             </tr>
         </table>
 
-    </div>>
+        <h5>Notes:
+            <li>5 years loan for half the car price</li>
+            <li>Low bank interest: base payment for the loan period * 1.05</li>
+            <li>Car is under manufacturer warranty during the 3 years</li>
+            <li>After the 3 years period, a new car/lease will start a new period</li>            
+        </h5>
+        <h5>Disclaimer:
+            <li>This is just an aproximate calculation</li>
+            <li>There might be errors in the equations, and/or costs not taking into account</li>            
+        </h5>
+
+    </div>
 
     <footer ng-include="'../footer.html'"></footer>
 
