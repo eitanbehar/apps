@@ -35,6 +35,7 @@
                 <td>Rishui (/yr):<input type="text" ng-model="private.rishui"></td>
                 <td>Service:<input type="text" ng-model="private.tipul"></td>
             </tr>
+            <tr></tr>
             <tr>
                 <td>Total /month</td>
                 <td><h4>
@@ -42,12 +43,18 @@
                 </h4></td>
             </tr>
             <tr>
+                <td>Car devaluation (%) after 3 years</td>
+                <td><input type="text" ng-model="private.devaluated"></td>
+                <td>Car value after 3 years</td>
+                <td><h3>{{+private.price * (100 - +private.devaluated)/100}}</h3></td>
+            </tr>
+            <tr>
                 <td></td>
-                <td>Private</td>
+                <td><strong>Private</strong></td>
                 <td><a 
                     href="https://www.shlomo.co.il/car/%D7%9E%D7%A1%D7%9C%D7%95%D7%9C_%D7%9C%D7%99%D7%A1%D7%99%D7%A0%D7%92_%D7%A4%D7%A8%D7%98%D7%99" 
-                    target="_blank">Private Leasing</a></td>
-                <td>Company Leasing</td>
+                    target="_blank"><strong>Private Leasing</strong></a></td>
+                <td><strong>Company Leasing</strong></td>
             </tr>                        
             <tr>
                 <td>Balloon Loan</td>
@@ -63,20 +70,16 @@
             </tr>
             <tr>
                 <td><strong>Costs 3 years</strong></td>
-            </tr>
-            <tr>
-                <td>Car value after 3 years</td>
-                <td><input type="text" ng-model="private.devaluated"></td>
-            </tr>
+            </tr>            
             <tr>
                 <td><strong></strong>Monthly costs</strong></td>
-                <td><h4>{{ (((+private.price - +private.devaluated) * 1.05) / 36) + (+private.tipul + +private.rishui + +private.insurance) /12 + (((km_per_year / 12) / private.km_per_liter) * fuel_price) | currency:"" }}</h4></td>                
+                <td><h4>{{ (((+private.price * (+private.devaluated/100)) * 1.05) / 36) + (+private.tipul + +private.rishui + +private.insurance) /12 + (((km_per_year / 12) / private.km_per_liter) * fuel_price) | currency:"" }}</h4></td>                
                 <td>incl fuel and rishui</td>
                 <td>incl benefits lost (savings)</td>
             </tr>            
             <tr>
                 <td>Cost /year</td>
-                <td><h3>{{ (((+private.price - +private.devaluated) * 1.05) / 3) + (+private.tipul + +private.rishui + +private.insurance) + ((km_per_year / private.km_per_liter) * fuel_price) | currency:"" }}</h3></td>
+                <td><h3>{{ (((+private.price * (+private.devaluated/100)) * 1.05) / 3) + (+private.tipul + +private.rishui + +private.insurance) + ((km_per_year / private.km_per_liter) * fuel_price) | currency:"" }}</h3></td>
                 <td><h3>{{ (+leasing_private.initial + +private.rishui) / 3 + (leasing_private.monthly * 12) + ((km_per_year / private.km_per_liter) * fuel_price) | currency:"" }}</h3></td>
                 <td><h3>{{ (+leasing_company.monthly + +leasing_company.benefits_lost) * 12 | currency:"" }} </h3></td>
             </tr>
