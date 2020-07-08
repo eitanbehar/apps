@@ -9,16 +9,18 @@ app.controller("controller", function ($scope, $http) {
     $scope.calculateDistance = function () {
 
         let destinations = [];
+        let selected_destinations = [];
 
         console.log($scope.from);
 
-        destinations.push(GetDistanceResult($scope.from, $scope.to, "To selected destination"));
+        selected_destinations.push(GetDistanceResult($scope.from, $scope.to, "To selected destination"));
         destinations.push(GetDistanceResult($scope.from, "32.054062,34.7826012", "Tel Aviv HaHagana Railway Station"));
         destinations.push(GetDistanceResult($scope.from, "32.0784123,34.7905662", "Tel Aviv HaShalom Railway Station"));
         destinations.push(GetDistanceResult($scope.from, "32.083944,34.7954446", "Tel Aviv Savidor Railway Station"));
         destinations.push(GetDistanceResult($scope.from, "32.1033559,34.802656", "Tel Aviv University Train Station"));
 
         $scope.destinations = destinations;
+        $scope.selected_destinations = selected_destinations;
     }
 
     $scope.getCoordinates = function (target, address) {
@@ -39,6 +41,19 @@ app.controller("controller", function ($scope, $http) {
         else {
             $scope.toAddress = "";
             $scope.toAddressList =  null;
+        }
+    }
+
+    $scope.clearLat = function (target) {
+        if (target == 0) {
+            $scope.fromAddress = "";
+            $scope.fromAddressList =  null;
+            $scope.from = null;
+        }
+        else {
+            $scope.toAddress = "";
+            $scope.toAddressList =  null;
+            $scope.to = null;
         }
     }
 

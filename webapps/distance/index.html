@@ -32,9 +32,9 @@
                                         </label>
                                     </div>
                                 </td>
-                                <td style="vertical-align:middle">
+                                <!--td style="vertical-align:middle">
                                     <i class="fa fa-circle-thin" style="font-size:20px;color:gray" ng-click="clearAddress(0)"></i>	                                    
-                                </td>
+                                </td-->
                                 <td style="vertical-align:middle">
                                     <button class="button special small" ng-click="getCoordinates(0, fromAddress)">Get
                                         Coordinates</button>                                    
@@ -45,6 +45,9 @@
                                     <label> or coordinates: lat, lon:
                                         <input type="text" name="fromCoord" id="fromCoord" ng-model="from"
                                             placeholder="From (lat, lon)" /></label>
+                                </td>
+                                <td style="vertical-align:middle">
+                                    <button class="button special small" ng-click="clearLat(0)">Clear</button>                                     
                                 </td>
                             </tr>
                         </table>
@@ -59,7 +62,7 @@
                                     <button class="button special small"
                                         ng-click="selectAddress(0, fromAddressElement)">Select</button>
                                 </td>
-                            </tr>
+                            </tr>                            
                         </table>
                     </td>
                 </tr>
@@ -76,10 +79,10 @@
                                         </label>
                                     </div>
                                 </td>
-                                <td style="vertical-align:middle">
+                                <!--td style="vertical-align:middle">
                                     <i class="fa fa-circle-thin" style="font-size:20px;color:gray" ng-click="clearAddress(1)"></i>	
-                                </td>
-                                <td style="vertical-align:middle">
+                                </td-->
+                                <td style="vertical-align:middle;text-align:center">
                                     <button class="button special small" ng-click="getCoordinates(1, toAddress)">Get
                                         Coordinates</button>                                    
                                 </td>                                
@@ -89,6 +92,9 @@
                                     <label> or coordinates: lat, lon:
                                         <input type="text" name="toCoord" id="tomCoord" ng-model="to"
                                             placeholder="To (lat, lon)" /></label>
+                                </td>
+                                <td style="vertical-align:middle">
+                                    <button class="button special small" ng-click="clearLat(1)">Clear</button>                                     
                                 </td>
                             </tr>
                         </table>
@@ -118,6 +124,11 @@
         <br>
         <table>
             <tr ng-repeat="x in destinations | orderBy: 'distance'">
+                <td>{{ x.name }}</td>
+                <td>{{ x.distance }}</td>
+                <td><a href="{{ x.map }}" target="_blank" class="button special small">Directions</a></td>
+            </tr>
+            <tr ng-repeat="x in selected_destinations | orderBy: 'distance'">
                 <td>{{ x.name }}</td>
                 <td>{{ x.distance }}</td>
                 <td><a href="{{ x.map }}" target="_blank" class="button special small">Directions</a></td>
