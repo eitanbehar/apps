@@ -28,7 +28,7 @@ jobs:
       with: 
         server: baconao.net
         username: baconao_apps@baconao.net
-        password: zl9bZpo%ZkET
+        password: ${{ secrets.ftp_password }}
         local-dir: webapps/
         server-dir: ./
         
