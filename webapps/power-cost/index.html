@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../assets/css/main.css" />
+    <link rel="stylesheet" type="text/css" href="../assets/css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="app.js"></script>
+</head>
+
+<body class="subpage" ng-app="app">
+
+    <header ng-include="'../header.html'"></header>
+
+
+    <div ng-controller="controller" class="content">
+
+        <h3>Calculate power consumption and cost for electronic devices</h3>
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Device</th>                        
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Consumption per hour (W)</td>
+                        <td><input type="text" ng-model="consumption"></td>                        
+                    </tr>
+                    <tr>
+                        <td>Hours used per day</td>
+                        <td><input type="text" ng-model="hours_per_day"></td>                        
+                    </tr>
+                </tbody>
+            </table>        
+            <table>
+                <tbody>
+                    <tr>
+                        <td>Electricity price (KW/h)</td>
+                        <td><input type="text" ng-model="electricity_price"></td>
+                    </tr>                    
+                </tbody>                
+            </table>
+            <table>
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Electricity Cost</th>                        
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr></tr>
+                    <tr>
+                        <td>Daily</td>
+                        <td><label>{{ (consumption / 1000) * hours_per_day * electricity_price | currency: ""}}</label></td>                        
+                    </tr>
+                    <tr></tr>
+                    <tr>
+                        <td>Monthly</td>
+                        <td><label>{{ (consumption / 1000) * hours_per_day * electricity_price * 30 | currency: ""}}</label></td>                        
+                    </tr>                                           
+                </tbody>                
+            </table>
+        </div>
+
+
+
+        <footer ng-include="'../footer.html'"></footer>
+
+</body>
+
+</html>
