@@ -24,12 +24,12 @@ jobs:
 
     # Sync website from github
     - name: ftp-action
-      uses: sebastianpopp/ftp-action@v2.0.0
+      uses: SamKirkland/FTP-Deploy-Action@4.3.3
       with: 
-        host: baconao.net
-        user: baconao_apps@baconao.net
+        server: baconao.net
+        username: baconao_apps@baconao.net
         password: zl9bZpo%ZkET
-        localDir: webapps
-        remoteDir: .
+        local-dir: webapps/
+        server-dir: ./
         
         
