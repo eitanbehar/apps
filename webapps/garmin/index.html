@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../assets/css/main.css" />
+    <link rel="stylesheet" type="text/css" href="../assets/css/style.css">
+    
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.2/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+    <script src="http://cdn.zingchart.com/zingchart.min.js"></script>
+    <script src="http://cdn.zingchart.com/angular/zingchart-angularjs.js"></script>
+    <script src="app.js"></script>    
+    
+
+</head>
+
+<body class="subpage" ng-app="app">
+
+    <header ng-include="'../header.html'"></header>
+
+
+    <div ng-controller="controller" class="content">
+
+        <h3>Garmin Watch Width</h3>
+        <div class="table-wrapper">
+            <table>
+                <tr><td>
+                    <div zingchart id="chart-1" zc-json="myJson" zc-width="100%" zc-height="568px"></div>
+                </td></tr>
+        </table>
+        </div>
+
+
+
+        <footer ng-include="'../footer.html'"></footer>
+
+</body>
+
+</html>
