@@ -12,3 +12,5 @@ Simple web apps, written in `AngularJS`
 * Install extension `Live Server`
 * Open repo folder
 * Click on `Go Live`
+
+---
