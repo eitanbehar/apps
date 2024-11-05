@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dropbox File List</title>
+    <style>
+        #file-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        #file-list li {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Dropbox File List</h1>
+    <ul id="file-list"></ul>
+    <h2>First Image Preview:</h2>
+    <div id="image-preview"></div>
+
+    <script src="https://unpkg.com/dropbox/dist/Dropbox-sdk.min.js"></script>
+    <script>
+        // Initialize Dropbox SDK
+        const dbx = new Dropbox.Dropbox({ accessToken: 'sl.CALHJWa_C5q34JTj54TKTpnZGunqk1XB1BRYh5jIFvxZjIdwyuW_fmwzMwndi3_fES4Yz8bHi0ZoNy2P0sFyuSIF7h86ForTmwuIqEHr9K5iHI14E2mOGJkfMXZQWeT8xvkeUNxQQFeu' });
+
+        // Function to list files in Dropbox folder
+        function listFiles() {
+            dbx.filesListFolder({ path: '' })
+                .then(response => {
+                    const fileList = document.getElementById('file-list');
+                    fileList.innerHTML = ''; // Clear previous file list
+
+                    // Iterate through files and display them in the list
+                    response.entries.forEach((file, index) => {
+                        const listItem = document.createElement('li');
+                        listItem.textContent = file.name;
+                        fileList.appendChild(listItem);
+
+                        // For the first file, fetch the temporary link and display the image
+                        if (index === 0) {
+                            displayFirstImage(file);
+                        }
+                    });
+                })
+                .catch(error => {
+                    console.error('Error listing files:', error);
+                });
+        }
+
+        // Function to display the first image
+        function displayFirstImage(file) {
+            const imagePreview = document.getElementById('image-preview');
+            imagePreview.innerHTML = ''; // Clear previous image
+
+            // Use filesGetTemporaryLink to fetch a temporary link for the image
+            dbx.filesGetTemporaryLink({ path: file.path_lower })
+                .then(linkResponse => {
+                    const img = document.createElement('img');
+                    img.src = linkResponse.link;
+                    img.alt = file.name;
+                    img.style.maxWidth = '300px'; // Set max width for image display
+                    imagePreview.appendChild(img);
+                })
+                .catch(error => {
+                    console.error('Error getting temporary link:', error);
+                });
+        }
+
+        // List files on page load
+        listFiles();
+    </script>
+
+</body>
+</html>
